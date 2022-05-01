@@ -3,7 +3,7 @@ import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 const Header = () => {
     return (
-        <Navbar className='px-5 py-3' collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar sticky='top' className='px-5 py-3' collapseOnSelect expand="lg" bg="dark" variant="dark">
 
             <Navbar.Brand href="/">The Stock Market</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
