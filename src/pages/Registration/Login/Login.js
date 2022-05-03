@@ -58,10 +58,16 @@ const Login = () => {
     return (
         <div className='reg-container '>
             <div className=''>
+
                 <div className="login d-flex justify-content-center">
                     <div className='login-form'>
                         <h1>Login to Your Account</h1>
                         <SocialLogin></SocialLogin>
+                        <div className='d-flex align-items-center'>
+                            <div style={{ height: '1px', }} className='bg-secondary w-50'></div>
+                            <p className='mt-2 mx-3'>or</p>
+                            <div style={{ height: '1px' }} className='bg-secondary w-50'></div>
+                        </div>
                         <Form onSubmit={handleUserLogin}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 {/* <Form.Label>Email address</Form.Label> */}
