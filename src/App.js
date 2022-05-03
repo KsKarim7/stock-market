@@ -5,8 +5,9 @@ import About from './pages/About/About';
 import Home from './pages/Home/Home';
 import Header from './pages/Shared/Header/Header';
 import Login from './pages/Registration/Login/Login';
-import SocialLogin from './pages/Registration/Login/SocialLogin/SocialLogin';
+import NotFound from './pages/NotFound/NotFound';
 import SignUp from './pages/Registration/SignUp/SignUp';
+import QnA from './pages/QnA/QnA';
 
 function App() {
   return (
@@ -18,8 +19,10 @@ function App() {
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
-
+        <Route path='qna' element={<QnA></QnA>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+
 
     </>
   );

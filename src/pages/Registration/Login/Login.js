@@ -1,14 +1,59 @@
-import React from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import React, { useRef, useState } from 'react';
+import { Form } from 'react-bootstrap';
+import { useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+
 import './Login.css';
 import SocialLogin from './SocialLogin/SocialLogin';
+import Loading from '../../Shared/Loading/Loading';
 
 
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const emailRef = useRef('');
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    let errorElement;
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const handleEmailBlur = e => {
+        setEmail(e.target.value);
+    }
+
+    const handlePasswordBlur = e => {
+        setPassword(e.target.value);
+    }
+
+    const handleUserLogin = e => {
+        e.preventDefault();
+        const email = emailRef.current.value;
+        signInWithEmailAndPassword(email, password)
+    }
+
+
     const navigateToSignup = () => {
         navigate('/signup')
+    }
+
+    if (error) {
+        errorElement = <p className='text-danger'>Error: {error.message}</p>
+    }
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+    if (user) {
+        navigate(from, { replace: true })
     }
     return (
         <div className='reg-container '>
@@ -17,20 +62,18 @@ const Login = () => {
                     <div className='login-form'>
                         <h1>Login to Your Account</h1>
                         <SocialLogin></SocialLogin>
-                        <Form>
+                        <Form onSubmit={handleUserLogin}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 {/* <Form.Label>Email address</Form.Label> */}
-                                <Form.Control type="email" placeholder="Enter email" />
+                                <Form.Control onSubmit={handleEmailBlur} type="email" placeholder="Enter email" required />
 
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 {/* <Form.Label>Password</Form.Label> */}
-                                <Form.Control type="password" placeholder="Password" />
+                                <Form.Control onBlur={handlePasswordBlur} type="password" placeholder="Enter password" required />
                             </Form.Group>
-                            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                <Form.Check type="checkbox" label="Accept terms and conditions" />
-                            </Form.Group>
+                            {errorElement}
                             <div className='d-flex justify-content-center'>
                                 <button className='button-1' type="submit">
                                     Submit
