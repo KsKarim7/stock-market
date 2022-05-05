@@ -6,7 +6,10 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <Stocks></Stocks>
+            <div className='bg-dark'>
+                <Stocks  ></Stocks>
+
+            </div>
 
 
 

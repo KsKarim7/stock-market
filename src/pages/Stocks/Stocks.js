@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Stock from '../Stock/Stock';
+import './Stocks.css'
 
 const Stocks = (props) => {
     const [stocks, setStocks] = useState([]);
@@ -10,9 +11,10 @@ const Stocks = (props) => {
             .then(data => setStocks(data));
     }, [])
     return (
-        <div>
-            <h1 className='text-center m-5'>Top Rated Stocks To Invest In {stocks.length} </h1>
-            <div>
+        <div className=''>
+
+            <h1 className='text  text-center py-5'>Top Rated Stocks To Invest In</h1>
+            <div className='stocks-container container'>
                 {
                     stocks.map(stock => <Stock
                         key={stock._id}

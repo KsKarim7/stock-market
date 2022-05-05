@@ -1,0 +1,22 @@
+.stocks-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.text {
+    color: rgb(178, 177, 177);
+}
+
+@media only screen and (max-width:576px) {
+    .stocks-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media only screen and (min-width: 577px) and (max-width:922px) {
+    .stocks-container {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}
