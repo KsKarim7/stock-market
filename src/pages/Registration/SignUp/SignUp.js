@@ -1,40 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../Login/SocialLogin/SocialLogin';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 import './SignUp.css'
+import Loading from '../../Shared/Loading/Loading';
 
 const SignUp = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState('');
+    const [agree, setAgree] = useState(false);
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    const handleUserSignUp = async (e) => {
+        email.preventDefault();
+
+        if (password !== confirmPassword) {
+            setError('Passwords do not match, type passwords correctly!')
+            return;
+        }
+        if (password.length < 6) {
+            setError('Password must contain at least 6 characters or above!')
+        }
+        await createUserWithEmailAndPassword(email, password)
+    }
+    const handleEmailBlur = e => {
+        setEmail(e.target.value);
+    }
+
+    const handleConfirmPasswordBlur = e => {
+        setConfirmPassword(e.target.value);
+    }
+
+    const handlePasswordBlur = e => {
+        setPassword(e.target.value);
+    }
+    if (loading) {
+        return <Loading></Loading>
+    }
+
     return (
         <div className='signup-bg d-flex justify-content-center align-items-center '>
             <div className='form-container'>
-                <Form>
+                <Form onSubmit={handleUserSignUp}>
                     <h2 className='text-secondary'>Get started with your account</h2>
-                    <h2 className='my-4 text-secondary' >Sign Up</h2>
+                    <h2 className='my-3 text-secondary' >Sign Up</h2>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control onBlur={handleEmailBlur} type="email" placeholder="Enter email" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control onBlur={handlePasswordBlur} type="password" placeholder="Password" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Control type="password" placeholder="Confirm Password" />
+                        <Form.Control onBlur={handleConfirmPasswordBlur} type="password" placeholder="Confirm Password" required />
                     </Form.Group>
                     <div className='d-flex'>
                         <div>
-                            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                <Form.Check className='fw-light' type="checkbox" label="Accept all terms and conditions" />
+                            <Form.Group onClick={() => setAgree(!agree)} className="mb-3" controlId="formBasicCheckbox">
+                                <Form.Check className={agree ? 'text-primary' : 'text-danger'} type="checkbox" label="Accept all terms and conditions" />
                             </Form.Group>
+                            <p className='text-danger'>{error}</p>
                         </div>
                         <div>
                             <Link className='login-link' to='/login'>Already have an account?  <span className=''>Login</span></Link>
                         </div>
                     </div>
                     <div className='d-flex justify-content-center'>
-                        <button className='button-1' type="submit">
-                            Submit
-                        </button>
+                        <input
+                            disabled={!agree}
+                            className='button-1'
+                            type="submit"
+                            value="Sign Up">
+                        </input>
                     </div>
 
                 </Form>

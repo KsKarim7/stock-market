@@ -8,6 +8,9 @@ import Login from './pages/Registration/Login/Login';
 import NotFound from './pages/NotFound/NotFound';
 import SignUp from './pages/Registration/SignUp/SignUp';
 import QnA from './pages/QnA/QnA';
+import Stock from './pages/Stock/Stock';
+import Stocks from './pages/Stocks/Stocks';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -20,8 +23,12 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='qna' element={<QnA></QnA>}></Route>
+        <Route path='stock' element={<Stock></Stock>}></Route>
+        <Route path='stocks' element={<Stocks></Stocks>}></Route>
+
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <ToastContainer />
 
 
     </>
