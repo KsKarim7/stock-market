@@ -1,0 +1,8 @@
+.mx-3:hover {
+    transform: translateY(-5px);
+}
+
+.mx-3 {
+    transition: 0.3s;
+    color: rgb(97, 96, 96);
+}

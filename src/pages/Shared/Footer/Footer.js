@@ -8,7 +8,7 @@ const Footer = () => {
     const today = new Date();
     const year = today.getFullYear();
     return (
-        <body>
+        <div className='body'>
             <footer>
                 <div className='waves'>
                     <div className='wave' id='wave1'></div>
@@ -32,7 +32,7 @@ const Footer = () => {
                 </ul>
                 <p className='text-light my-1 text-lg'> ©{year} International Stock Market | All Rights Reserved</p>
             </footer>
-        </body>
+        </div>
     );
 };
 

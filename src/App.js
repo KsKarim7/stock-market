@@ -14,6 +14,7 @@ import { ToastContainer } from 'react-toastify';
 import Footer from './pages/Shared/Footer/Footer';
 import Inventory from './pages/Inventory/Inventory';
 import StockDetail from './pages/StockDetail/StockDetail';
+import RequireAuth from './pages/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -28,12 +29,21 @@ function App() {
         <Route path='qna' element={<QnA></QnA>}></Route>
         <Route path='stock' element={<Stock></Stock>}></Route>
         <Route path='stocks' element={<Stocks></Stocks>}></Route>
-        <Route path='inventory' element={<Inventory></Inventory>}></Route>
-        <Route path='/stock/:stockId' element={<StockDetail></StockDetail>}></Route>
+        <Route path='inventory' element={
+          <RequireAuth>
+            <Inventory></Inventory>
+          </RequireAuth>
+        }></Route>
+        <Route path='/stock/:stockId' element={
+          <RequireAuth>
+            <StockDetail></StockDetail>
+          </RequireAuth>
+        }></Route>
 
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
+
       <ToastContainer />
 
 

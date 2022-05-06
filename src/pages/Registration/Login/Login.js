@@ -7,6 +7,8 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './Login.css';
 import SocialLogin from './SocialLogin/SocialLogin';
 import Loading from '../../Shared/Loading/Loading';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 
 const Login = () => {
@@ -38,6 +40,18 @@ const Login = () => {
         const email = emailRef.current.value;
         signInWithEmailAndPassword(email, password)
     }
+
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent Email')
+        }
+        else {
+            toast('Enter your Email Address!')
+        }
+    }
+
 
 
     const navigateToSignup = () => {
@@ -78,11 +92,20 @@ const Login = () => {
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 {/* <Form.Label>Password</Form.Label> */}
                                 <Form.Control onBlur={handlePasswordBlur} type="password" placeholder="Enter password" required />
+                                <div className='d-flex justify-content-between reset'>
+                                    <p className='text-danger'>{error?.message}</p>
+                                    {
+                                        loading
+                                    }
+                                    <p className=' text-danger'>
+                                        Forget Password?  <button onClick={resetPassword} className=' text-success reset-btn '>Reset Password</button>
+                                    </p>
+                                </div>
                             </Form.Group>
                             {errorElement}
                             <div className='d-flex justify-content-center'>
                                 <button className='button-1' type="submit">
-                                    Submit
+                                    Login
                                 </button>
                             </div>
                         </Form>
@@ -93,7 +116,7 @@ const Login = () => {
                 <div className='mx-5'>
                     <h1 className='my-4'>New Here?</h1>
                     <h3>Sign up and create your first account in share market.</h3>
-                    <button onClick={navigateToSignup} className='button'>Sign Up</button>
+                    <button className='button-2' onClick={navigateToSignup}>Sign Up</button>
                 </div>
             </div>
         </div>
