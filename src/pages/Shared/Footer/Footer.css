@@ -2,7 +2,7 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    min-height: 30vh;
+    min-height: 36vh;
     background: #333;
 }
 
@@ -24,7 +24,7 @@ footer .menu {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 0;
+    margin: 15px 0px 5px 0px;
     flex-wrap: wrap;
 
 }
@@ -63,12 +63,13 @@ footer .menu li a:hover {
 
 footer .wave {
     position: absolute;
-    top: -100px;
+    top: -65px;
     left: 0;
     width: 100%;
-    height: 100px;
+    height: 70px;
     background: url(../../../img/wave.png);
-    background-size: 1000px 100px;
+    background-size: 1000px 80px;
+    background-color: rgb(208, 243, 255);
 
 }
 

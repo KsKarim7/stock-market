@@ -12,6 +12,8 @@ import Stock from './pages/Stock/Stock';
 import Stocks from './pages/Stocks/Stocks';
 import { ToastContainer } from 'react-toastify';
 import Footer from './pages/Shared/Footer/Footer';
+import Inventory from './pages/Inventory/Inventory';
+import StockDetail from './pages/StockDetail/StockDetail';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path='qna' element={<QnA></QnA>}></Route>
         <Route path='stock' element={<Stock></Stock>}></Route>
         <Route path='stocks' element={<Stocks></Stocks>}></Route>
+        <Route path='inventory' element={<Inventory></Inventory>}></Route>
+        <Route path='/stock/:stockId' element={<StockDetail></StockDetail>}></Route>
 
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>

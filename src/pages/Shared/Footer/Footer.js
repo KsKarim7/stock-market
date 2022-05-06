@@ -30,7 +30,7 @@ const Footer = () => {
                     <li><a href="">Payment Method</a></li>
                     <li><a href="">Terms & Condition</a></li>
                 </ul>
-                <p className='text-light my-3 text-lg'> ©{year} International Stock Market | All Rights Reserved</p>
+                <p className='text-light my-1 text-lg'> ©{year} International Stock Market | All Rights Reserved</p>
             </footer>
         </body>
     );
