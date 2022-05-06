@@ -11,6 +11,7 @@ import QnA from './pages/QnA/QnA';
 import Stock from './pages/Stock/Stock';
 import Stocks from './pages/Stocks/Stocks';
 import { ToastContainer } from 'react-toastify';
+import Footer from './pages/Shared/Footer/Footer';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
 
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
       <ToastContainer />
 
 

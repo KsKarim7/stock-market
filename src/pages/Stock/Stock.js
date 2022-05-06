@@ -21,9 +21,8 @@ const Stock = ({ stock }) => {
                     <ListGroupItem >Current Share value: <span className='fw-bold'>${value}</span> </ListGroupItem>
                     <ListGroupItem>Quality: {quantity}</ListGroupItem>
                 </ListGroup>
-                <Card.Body className='bg-secondary  '>
-                    <Card.Link className='text-light' href="#">Card Link</Card.Link>
-                    <Card.Link className='text-light' href="#">Another Link</Card.Link>
+                <Card.Body className='btn-body  text-center '>
+                    <Card.Link className='text-light update-btn ' href="#">Update Stock</Card.Link>
                 </Card.Body>
             </Card>
 

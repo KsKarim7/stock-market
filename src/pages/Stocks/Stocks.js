@@ -16,7 +16,7 @@ const Stocks = (props) => {
             <h1 className='text  text-center py-5'>Top Rated Stocks To Invest In</h1>
             <div className='stocks-container container'>
                 {
-                    stocks.map(stock => <Stock
+                    stocks.slice(0, 6).map(stock => <Stock
                         key={stock._id}
                         stock={stock}
                     ></Stock>)

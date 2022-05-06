@@ -8,8 +8,8 @@ const Home = () => {
             <Banner></Banner>
             <div className='bg-dark'>
                 <Stocks  ></Stocks>
-
             </div>
+
 
 
 
