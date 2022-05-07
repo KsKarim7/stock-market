@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from 'react';
 import { Link as button, useNavigate } from 'react-router-dom';
 import Stock from '../Stock/Stock';
 import './Stocks.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
+import useStocks from '../../Hooks/useStocks';
 
 
 
 const Stocks = (props) => {
-    const [stocks, setStocks] = useState([]);
+    const [stocks] = useStocks();
     const navigate = useNavigate();
 
     const navigateToInventory = () => {
         navigate('/inventory')
     }
 
-    useEffect(() => {
-        fetch('http://localhost:5000/stock')
-            .then(res => res.json())
-            .then(data => setStocks(data));
-    }, [])
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/stock')
+    //         .then(res => res.json())
+    //         .then(data => setStocks(data));
+    // }, [])
     return (
         <div className='container'>
 

@@ -15,6 +15,8 @@ import Footer from './pages/Shared/Footer/Footer';
 import Inventory from './pages/Inventory/Inventory';
 import StockDetail from './pages/StockDetail/StockDetail';
 import RequireAuth from './pages/RequireAuth/RequireAuth';
+import AddStock from './pages/AddStock/AddStock';
+import MyStocks from './pages/MyStocks/MyStocks'
 
 function App() {
   return (
@@ -39,6 +41,18 @@ function App() {
             <StockDetail></StockDetail>
           </RequireAuth>
         }></Route>
+        <Route path='addstock' element={
+          <RequireAuth>
+            <AddStock></AddStock>
+          </RequireAuth>
+        }></Route>
+        <Route path='mystocks' element={
+          <RequireAuth>
+            <MyStocks></MyStocks>
+          </RequireAuth>
+        } >
+
+        </Route>
 
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>

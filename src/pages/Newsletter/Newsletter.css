@@ -1,0 +1,23 @@
+.awesome {
+    height: 70px;
+    width: 100px;
+    /* margin-left: 110px; */
+    color: rgb(164, 114, 52);
+}
+
+.news {
+    color: rgb(164, 114, 52);
+
+}
+
+.submit {
+    color: rgb(32, 40, 30);
+    background-color: rgb(164, 114, 52);
+    margin-left: 17px;
+    width: 145px;
+    height: 48px;
+    border-radius: 25px;
+    font-size: 20px;
+    /* font-weight: bold; */
+    margin-top: 10px;
+}

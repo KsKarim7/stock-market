@@ -12,7 +12,7 @@ const Header = () => {
         signOut(auth);
     }
     return (
-        <Navbar sticky='top' className='px-5 py-2' collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar sticky='top' className='px-5 py-2 ' collapseOnSelect expand="lg" bg="dark" variant="dark">
 
             <Navbar.Brand as={Link} to="/">
                 <img src={logo} alt="" />

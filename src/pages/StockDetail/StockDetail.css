@@ -1,5 +1,31 @@
+/* .body {
+    min-height: 1000px;
+} */
+
 .stock {
-    border: 1px solid lightgray;
-    padding-bottom: 10px;
-    text-align: center;
+    margin-top: 50px;
+}
+
+.detail {
+    border: 1px solid grey;
+    padding: 40px;
+    width: 1000px;
+    margin-left: 100px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+}
+
+.manage {
+    margin-right: 170px;
+}
+
+.stock-info {
+    margin-left: -90px;
+}
+
+.stock-form {
+    margin-left: 100px;
 }

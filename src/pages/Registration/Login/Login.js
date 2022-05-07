@@ -9,6 +9,7 @@ import SocialLogin from './SocialLogin/SocialLogin';
 import Loading from '../../Shared/Loading/Loading';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -100,9 +101,9 @@ const Login = () => {
                                     <p className=' text-danger'>
                                         Forget Password?  <button onClick={resetPassword} className=' text-success reset-btn '>Reset Password</button>
                                     </p>
+                                    {errorElement}
                                 </div>
                             </Form.Group>
-                            {errorElement}
                             <div className='d-flex justify-content-center'>
                                 <button className='button-1' type="submit">
                                     Login

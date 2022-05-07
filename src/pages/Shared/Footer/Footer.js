@@ -8,7 +8,7 @@ const Footer = () => {
     const today = new Date();
     const year = today.getFullYear();
     return (
-        <div className='body'>
+        <div className='foot'>
             <footer>
                 <div className='waves'>
                     <div className='wave' id='wave1'></div>
