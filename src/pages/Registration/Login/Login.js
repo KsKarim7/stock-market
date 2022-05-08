@@ -68,7 +68,7 @@ const Login = () => {
     }
 
     if (user) {
-        navigate(from, { replace: true })
+        navigate(from, { replace: true });
     }
     return (
         <div className='reg-container '>

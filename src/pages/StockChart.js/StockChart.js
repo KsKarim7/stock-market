@@ -10,7 +10,7 @@ const StockChart = (stock) => {
     return (
         <div >
             <h1 className='text text-center chart' style={{ paddingTop: '60px' }}>A Composed Chart is shown below on today stock report:</h1>
-            <div className='container' style={{ padding: '50px' }}>
+            <div className='container for-mob' style={{ padding: '50px' }}>
                 <ComposedChart className='composedChart'
                     width={1200}
                     height={500}

@@ -7,3 +7,12 @@
     margin: 15px;
     font-size: 20px;
 }
+
+@media only screen and (max-width: 576px) {
+    .carousel-btn {
+        width: 70px;
+        height: 25px;
+        font-size: 11px;
+        margin: 8px;
+    }
+}

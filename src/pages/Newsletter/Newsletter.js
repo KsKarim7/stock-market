@@ -14,6 +14,7 @@ const Newsletter = () => {
             <div>
                 <FontAwesomeIcon className=' awesome text-center' icon={faNewspaper}></FontAwesomeIcon>
                 <h1 className='news p-2'>Newsletter Signup</h1>
+                <h5 className='news ps-3'>Enter your info to get latest stock update daily.</h5>
                 <>
                     {/* <Form.Label htmlFor="inputPassword5">Password</Form.Label> */}
                     <Form.Control

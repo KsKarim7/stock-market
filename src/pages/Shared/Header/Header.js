@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import logo from '../../../img/logo/bull-bear-logo-bullish-stocks_434503-247 (1) (1).png'
+import './Header.css'
 
 const Header = () => {
     const [user] = useAuthState(auth);
@@ -25,9 +26,9 @@ const Header = () => {
                     {
                         user && <>
                             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Manage Stocks</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Add Stocks</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">My Stocks</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to='inventory'>Manage Stocks</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to='addstock'>Add Stocks</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to='mystocks'>My Stocks</NavDropdown.Item>
                                 <NavDropdown.Divider />
                             </NavDropdown>
                         </>
@@ -36,7 +37,10 @@ const Header = () => {
                 <Nav>
                     {
                         user ?
-                            <Nav.Link onClick={handleSignOut}>Log Out</Nav.Link>
+                            <div>
+                                <Nav.Link onClick={handleSignOut}>Log Out</Nav.Link>
+                                <Nav.Link className='text-light' as={Link} to="">{user.name}</Nav.Link>
+                            </div>
                             :
                             <Nav.Link as={Link} to="/login">Login</Nav.Link>
 

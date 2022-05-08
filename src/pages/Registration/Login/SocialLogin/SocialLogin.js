@@ -3,12 +3,15 @@ import './SocialLogin.css'
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
 import Loading from '../../../Shared/Loading/Loading';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 const SocialLogin = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+
+    let from = location.state.from?.pathname || "/";
     const [
         signInWithGoogle,
         user,
@@ -29,7 +32,8 @@ const SocialLogin = () => {
     }
 
     if (user) {
-        navigate('/')
+        navigate(from, { replace: true });
+
     }
     return (
         <div>
