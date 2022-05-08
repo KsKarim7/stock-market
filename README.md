@@ -1,10 +1,18 @@
 # Getting Started with Create React App
 
-Website Name:
+Website Name:Stock Exchange
 
 Live Site Link:
 
+Stack overflow link: https://stackoverflow.com/questions/72162549/difference-between-useref-and-onblur
+
 A short description about the site:
+
+- This site is about the international stock exchange.  
+- Here the user can invest in stock market and trade and as well as manage his individual stocks .
+- Users stock item routes will be protected.
+- User can login through email and google.
+- User's interaction will be secured jwt authorization.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

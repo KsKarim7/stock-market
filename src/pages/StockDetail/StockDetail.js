@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -13,8 +13,10 @@ const StockDetail = () => {
     const navigateToInventory = id => {
         navigate(`/inventory`)
     }
+    const sellRef = useRef('');
 
     const [share, setShare] = useState();
+
     // useEffect(() => {
     //     const url = `http://localhost:5000/stock/${id}`;
     //     fetch(url)
@@ -23,12 +25,17 @@ const StockDetail = () => {
     // }, [])
 
     const handlePlaceOrder = id => {
+        // const quantity = share.quantity
         const proceed = window.confirm("Are you sure?")
         if (proceed) {
             console.log('deleting  user with id,', id);
-            const url = `http://localhost:3000/stock/${id}`;
+            const url = `http://localhost:5000/stock/${id}`;
             fetch(url, {
-                method: 'DELETE'
+                method: 'PUT',
+                headers: {
+                    "content-type": 'application/json'
+                },
+                body: JSON.stringify({ quantity: stock.quantity - 1 })
             })
                 .then(res => res.json())
                 .then(data => {
@@ -37,6 +44,32 @@ const StockDetail = () => {
                     setShare(remaining);
                 })
         }
+    }
+
+    const handleSellOrder = (id) => {
+        // console.log(event.target.name.value)
+        // const stockNumber = id.input.value;
+        const stockNumber = sellRef.current.value;
+        console.log(stockNumber)
+        const proceed = window.confirm("Are you sure?")
+        if (proceed) {
+            console.log('deleting  user with id,', id);
+            const url = `http://localhost:5000/stock/${id}`;
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    "content-type": 'application/json'
+                },
+                body: JSON.stringify({ quantity: stock.quantity + parseInt(stockNumber) })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const remaining = stock.filter(stock => stock._id !== id)
+                    setShare(remaining);
+                })
+        }
+
     }
     // const updateQuantity = e => {
     //     e.preventDefault();
@@ -109,8 +142,8 @@ const StockDetail = () => {
                                 </Form.Label>
                                 <div className='flex'>
 
-                                    <Form.Control className='w-50' type="number" size="lg" />
-                                    <button type="button" class="btn mx-4 btn-secondary">Secondary</button>
+                                    <Form.Control ref={sellRef} name='name' className='w-50' type="number" size="lg" />
+                                    <button onClick={() => handleSellOrder(stock._id)} type="button" class="btn mx-4 btn-secondary">Sell Stock</button>
                                 </div>
                             </Form.Group>
                         </Form.Group>

@@ -7,6 +7,7 @@ import { Table } from 'react-bootstrap';
 import ShowMyStocks from '../ShowMyStocks/ShowMyStocks';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
+import axiosPrivate from '../api/AxiosPrivate';
 
 const MyStocks = () => {
     const [user] = useAuthState(auth);
@@ -16,13 +17,17 @@ const MyStocks = () => {
         const getStocks = async () => {
             const email = user?.email;
             const url = `http://localhost:5000/singlestock?email=${email}`;
+            axios.get('https://api.github.com/user', {
+                headers: {
+                    'Authorization': `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+
             try {
-                const { data } = await axios.get(url, {
-                    headers: {
-                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                    }
-                });
+                const { data } = await axiosPrivate.get(url);
                 setStocks(data);
+
+
             }
             catch (error) {
                 console.log(error);
