@@ -2,7 +2,8 @@ import React, { useRef, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import axios from 'axios'
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
 import './Login.css';
 import SocialLogin from './SocialLogin/SocialLogin';
@@ -16,6 +17,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const emailRef = useRef('');
+    const passwordRef = useRef('');
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -28,6 +30,9 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+
     const handleEmailBlur = e => {
         setEmail(e.target.value);
     }
@@ -36,10 +41,18 @@ const Login = () => {
         setPassword(e.target.value);
     }
 
-    const handleUserLogin = e => {
+    const handleUserLogin = async e => {
         e.preventDefault();
         const email = emailRef.current.value;
-        signInWithEmailAndPassword(email, password)
+        const password = passwordRef.current.value;
+        console.log(email, password)
+
+        await signInWithEmailAndPassword(email, password)
+        const { data } = await axios.post('http://localhost:3000/login', { email })
+        // console.log(data)
+        localStorage.setItem('accessToken', data.accessToken);
+        navigate(from, { replace: true });
+
     }
 
     const resetPassword = async () => {
@@ -63,12 +76,12 @@ const Login = () => {
         errorElement = <p className='text-danger'>Error: {error.message}</p>
     }
 
-    if (loading) {
+    if (loading || sending) {
         return <Loading></Loading>
     }
 
     if (user) {
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
     }
     return (
         <div className='reg-container '>
@@ -86,13 +99,13 @@ const Login = () => {
                         <Form onSubmit={handleUserLogin}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 {/* <Form.Label>Email address</Form.Label> */}
-                                <Form.Control onSubmit={handleEmailBlur} type="email" placeholder="Enter email" required />
+                                <Form.Control ref={emailRef} onBlur={handleEmailBlur} type="email" placeholder="Enter email" required />
 
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 {/* <Form.Label>Password</Form.Label> */}
-                                <Form.Control onBlur={handlePasswordBlur} type="password" placeholder="Enter password" required />
+                                <Form.Control ref={passwordRef} onBlur={handlePasswordBlur} type="password" placeholder="Enter password" required />
                                 <div className='d-flex justify-content-between reset'>
                                     <p className='text-danger'>{error?.message}</p>
                                     {

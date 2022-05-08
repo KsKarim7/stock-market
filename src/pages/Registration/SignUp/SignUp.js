@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../Login/SocialLogin/SocialLogin';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import './SignUp.css'
 import Loading from '../../Shared/Loading/Loading';
@@ -13,12 +13,16 @@ const SignUp = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const [agree, setAgree] = useState(false);
+    const navigate = useNavigate();
+
 
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
     ] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
 
     const handleUserSignUp = async (e) => {
         email.preventDefault();
@@ -30,7 +34,9 @@ const SignUp = () => {
         if (password.length < 6) {
             setError('Password must contain at least 6 characters or above!')
         }
-        await createUserWithEmailAndPassword(email, password)
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: email });
+        alert('Update profile')
     }
     const handleEmailBlur = e => {
         setEmail(e.target.value);
@@ -43,7 +49,7 @@ const SignUp = () => {
     const handlePasswordBlur = e => {
         setPassword(e.target.value);
     }
-    if (loading) {
+    if (loading || updating) {
         return <Loading></Loading>
     }
 
