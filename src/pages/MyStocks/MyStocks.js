@@ -11,15 +11,19 @@ import axiosPrivate from '../api/AxiosPrivate';
 
 const MyStocks = () => {
     const [user] = useAuthState(auth);
-    const [stocks, setStocks] = useState([])
+    const [stocks, setStocks] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
         const getStocks = async () => {
             const email = user?.email;
             const url = `http://localhost:5000/singlestock?email=${email}`;
-            axios.get('https://api.github.com/user', {
+            // const { data } = await axios.get(url);
+            // setStok
+
+            console.log(localStorage.getItem('accessToken'))
+            axios.get(url, {
                 headers: {
-                    'Authorization': `bearer ${localStorage.getItem('accessToken')}`
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
 
@@ -31,7 +35,7 @@ const MyStocks = () => {
             }
             catch (error) {
                 console.log(error);
-                if (error.response.statue === 403 || error.response.statue === 401) {
+                if (error.response.statue === 401 || error.response.statue === 403) {
                     signOut(auth);
                     navigate('/login')
                 }
@@ -44,7 +48,7 @@ const MyStocks = () => {
             <Table striped bordered hover variant="dark">
                 <thead>
                     <tr>
-                        <th className='text-center text-xl bg-secondary text-dark' colSpan={9}>Track table of today's latest stocks</th>
+                        <th className='text-center text-xl bg-secondary text-dark' colSpan={9}>Track table of My stocks</th>
                     </tr>
                 </thead>
                 <tbody>

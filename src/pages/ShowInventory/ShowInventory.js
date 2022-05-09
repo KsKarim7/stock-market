@@ -29,7 +29,6 @@ const ShowInventory = ({ stock }) => {
 
     return (
         <div>
-            {/* <p>{_id}</p> */}
             <p className='text-center'>{name} </p>
             <p>Current Value: <span className='fw-bold'>${value}</span></p>
             <p >{high} <FontAwesomeIcon className='text-success' icon={faUpLong}></FontAwesomeIcon> </p>

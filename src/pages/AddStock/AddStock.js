@@ -23,7 +23,7 @@ const AddStock = () => {
         <div className='form bg-secondary w-50 mx-auto'>
             <h2 className='text-center py-4'>Add Stock here</h2>
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
-                <input placeholder='Name' className='mx-auto w-50 mb-2 pb-1' {...register("Name", { required: true, maxLength: 20 })} />
+                <input placeholder='Name' className='mx-auto w-50 mb-2 pb-1' {...register("name", { required: true, maxLength: 20 })} />
                 <input placeholder='Email' className='mx-auto w-50 mb-2 pb-1' {...register("email", { required: true, maxLength: 20 })} />
                 <input placeholder='Supplier' className='mx-auto w-50 mb-2 pb-1' {...register("supplier", { required: true, maxLength: 20 })} />
                 <textarea placeholder='Description' className='mx-auto w-50 mb-2 pb-1' {...register("article")} />

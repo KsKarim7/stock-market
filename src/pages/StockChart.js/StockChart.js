@@ -1,17 +1,20 @@
 import React from 'react';
 import useStocks from '../../Hooks/useStocks';
-import { Line, YAxis, XAxis, Tooltip, ComposedChart, CartesianGrid, Legend, Area, Bar, Scatter } from 'recharts'
+import { Line, YAxis, XAxis, Tooltip, ComposedChart, CartesianGrid, Legend, Area, Bar, Scatter, ResponsiveContainer } from 'recharts'
 import './StockChart.css'
 
-const StockChart = (stock) => {
-    const { _id, name, value, high, low } = stock;
+const StockChart = () => {
+    // const { _id, name, value, high, low, quantity } = stock;
+    // console.log(stock)
     const [stocks, setStocks] = useStocks();
+    console.log(stocks)
 
     return (
         <div >
             <h1 className='text text-center chart' style={{ paddingTop: '60px' }}>A Composed Chart is shown below on today stock report:</h1>
             <div className='for-mob'>
-                <div className='container ' style={{ padding: '50px' }}>
+                <div className='container' style={{ padding: '50px' }}>
+                    {/* <ResponsiveContainer width="100%" height="100%"> */}
                     <ComposedChart className='composedChart'
                         width={1200}
                         height={500}
@@ -23,17 +26,18 @@ const StockChart = (stock) => {
                             left: 20,
                         }}>
                         <CartesianGrid stroke="#f5f5f5" />
-                        <XAxis dataKey="name" scale="band" />
+                        <XAxis dataKey={stocks.name} scale="band" />
                         <YAxis />
                         <Tooltip />
                         <Legend />
                         <Area type="monotone" dataKey="amt" fill="#8884d8" stroke="#8884d8" />
-                        <Bar dataKey="high" barSize={20} fill="#656262" />
-                        <Bar dataKey="low" barSize={20} fill="#cfc9c9" />
-                        <Line type="monotone" dataKey="value" stroke="#108dbe" />
-                        <Scatter dataKey="quantity" fill="purple" />
+                        <Bar dataKey={stocks.high} barSize={20} fill="#656262" />
+                        <Bar dataKey={stocks.low} barSize={20} fill="#cfc9c9" />
+                        <Line type="monotone" dataKey={stocks.value} stroke="#108dbe" />
+                        <Scatter dataKey={stocks.quantity} fill="purple" />
 
                     </ComposedChart>
+                    {/* </ResponsiveContainer> */}
 
                 </div>
             </div>

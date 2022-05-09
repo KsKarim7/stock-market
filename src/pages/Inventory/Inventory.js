@@ -6,7 +6,7 @@ import ShowInventory from '../ShowInventory/ShowInventory';
 import Stock from '../Stock/Stock';
 import './Inventory.css'
 
-const Inventory = () => {
+const Inventory = (props) => {
     const navigate = useNavigate();
     const handleNavigate = () => {
         navigate('/addstock')

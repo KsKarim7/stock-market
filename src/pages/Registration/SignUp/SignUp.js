@@ -6,10 +6,12 @@ import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-fireb
 import auth from '../../../firebase.init';
 import './SignUp.css'
 import Loading from '../../Shared/Loading/Loading';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const [agree, setAgree] = useState(false);
@@ -18,14 +20,13 @@ const SignUp = () => {
 
     const [
         createUserWithEmailAndPassword,
-        user,
         loading,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
 
-    const handleUserSignUp = async (e) => {
-        email.preventDefault();
+    const handleUserSignUp = async e => {
+        e.preventDefault();
 
         if (password !== confirmPassword) {
             setError('Passwords do not match, type passwords correctly!')
@@ -35,11 +36,15 @@ const SignUp = () => {
             setError('Password must contain at least 6 characters or above!')
         }
         await createUserWithEmailAndPassword(email, password);
-        await updateProfile({ displayName: email });
-        alert('Update profile')
+        await updateProfile({ displayName: name });
+        console.log('Update profile')
+        navigate('/')
     }
     const handleEmailBlur = e => {
         setEmail(e.target.value);
+    }
+    const handleNameBlur = e => {
+        setName(e.target.value);
     }
 
     const handleConfirmPasswordBlur = e => {
@@ -59,6 +64,9 @@ const SignUp = () => {
                 <Form onSubmit={handleUserSignUp}>
                     <h2 className='text-secondary'>Get started with your account</h2>
                     <h2 className='my-3 text-secondary' >Sign Up</h2>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Control onBlur={handleNameBlur} type="text" placeholder="Enter your name" required />
+                    </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Control onBlur={handleEmailBlur} type="email" placeholder="Enter email" required />
                     </Form.Group>

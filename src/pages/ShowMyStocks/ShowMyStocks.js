@@ -9,16 +9,16 @@ import auth from '../../firebase.init';
 
 const ShowMyStocks = ({ stock }) => {
     const [user] = useAuthState(auth);
+    const [stocks, setStocks] = useState();
 
     const { _id, name, value, high, low } = stock;
     // const [stocks, setStocks] = useStocks();
-    const [stocks, setStocks] = useState();
     useEffect(() => {
         const getStocks = async () => {
             const email = user?.email;
             const url = `http://localhost:5000/singlestock?email=${email}`;
             const { data } = await axios.get(url);
-            console.log(url)
+            // console.log(url)
             setStocks(data);
         }
         getStocks();
@@ -30,7 +30,7 @@ const ShowMyStocks = ({ stock }) => {
     const handleStockDelete = id => {
         const proceed = window.confirm('This stock stock will be deleted from the inventory, click OK to proceed.')
         if (proceed) {
-            console.log('deleting stock with id ', id);
+            console.log('', id);
             const url = `http://localhost:5000/singlestock/${id}`;
             fetch(url, {
                 method: 'DELETE'

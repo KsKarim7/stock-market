@@ -8,6 +8,9 @@
 
 .detail {
     border: 1px solid grey;
+    border-style: dotted;
+    border-radius: 30px;
+    background-image: linear-gradient(to right, rgb(35, 35, 30) 0%, #5c5959 50%, rgb(56, 54, 54) 100%);
     padding: 40px;
     width: 1000px;
     margin-left: 100px;
