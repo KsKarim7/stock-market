@@ -1,3 +1,22 @@
 .inventory {
     min-height: 700px;
 }
+
+/* .scroll {
+    overflow-x: scroll;
+} */
+
+.scroll-bar {
+    width: 110px;
+    height: 110px;
+}
+
+@media only screen and (max-width:576px) {
+    #scroll-table {
+
+        /* border: 1px solid red; */
+        width: 500px;
+    }
+
+
+}

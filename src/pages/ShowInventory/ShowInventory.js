@@ -28,12 +28,12 @@ const ShowInventory = ({ stock }) => {
     }
 
     return (
-        <div>
-            <p className='text-center'>{name} </p>
-            <p>Current Value: <span className='fw-bold'>${value}</span></p>
-            <p >{high} <FontAwesomeIcon className='text-success' icon={faUpLong}></FontAwesomeIcon> </p>
-            <p > {low} <FontAwesomeIcon className='text-danger' icon={faDownLong}></FontAwesomeIcon></p>
-            <button onClick={() => handleStockDelete(_id)} className='btn  btn-danger ms-5'>Delete</button>
+        <div className='scroll'>
+            <p className='text-center scroll-item'>{name} </p>
+            <p className='scroll-item'>Current Value: <span className='fw-bold'>${value}</span></p>
+            <p className='scroll-item' >{high} <FontAwesomeIcon className='text-success' icon={faUpLong}></FontAwesomeIcon> </p>
+            <p className='scroll-item'> {low} <FontAwesomeIcon className='text-danger' icon={faDownLong}></FontAwesomeIcon></p>
+            <button onClick={() => handleStockDelete(_id)} className='btn scroll-item  btn-danger ms-5'>Delete</button>
         </div>
 
         // <tbody>

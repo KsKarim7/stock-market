@@ -88,10 +88,6 @@ const StockDetail = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div className='mg-inventory manage'>
-                    <button onClick={() => navigateToInventory(stockId)} className=' fw-bold'>Manage Inventories</button>
-
-                </div> */}
                 <div className='mg-inventory'>
 
                     <button onClick={navigateToInventory} className='text-dark fw-bold me-5 mt-3  text-xl'>Manage Inventories <FontAwesomeIcon icon={faArrowRightLong}></FontAwesomeIcon></button>

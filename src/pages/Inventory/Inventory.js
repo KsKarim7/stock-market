@@ -3,7 +3,6 @@ import { Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import useStocks from '../../Hooks/useStocks';
 import ShowInventory from '../ShowInventory/ShowInventory';
-import Stock from '../Stock/Stock';
 import './Inventory.css'
 
 const Inventory = (props) => {
@@ -15,8 +14,8 @@ const Inventory = (props) => {
 
 
     return (
-        <div className='inventory'>
-            <Table striped bordered hover variant="dark">
+        <div className='inventory '>
+            <Table id='scroll-table' striped bordered hover variant="dark">
                 <thead>
                     <tr>
                         <th className='text-center text-xl bg-secondary text-dark' colSpan={9}>Track table of today's latest stocks</th>
@@ -25,7 +24,7 @@ const Inventory = (props) => {
                         <th>Username</th> */}
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
                     <tr>
                         {
                             stocks.map(stock => <td><ShowInventory

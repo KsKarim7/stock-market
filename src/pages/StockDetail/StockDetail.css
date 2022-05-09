@@ -21,6 +21,12 @@
     grid-template-columns: 5fr 4fr;
 }
 
+/* @media only screen and (max-width:576px) {
+    .grid {
+        display: flex;
+    }
+} */
+
 .manage {
     margin-right: 170px;
 }
