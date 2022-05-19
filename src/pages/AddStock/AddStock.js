@@ -6,7 +6,7 @@ const AddStock = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data);
-        const url = `http://localhost:5000/stock`;
+        const url = ` https://glacial-spire-92377.herokuapp.com/stock`;
         fetch(url, {
             method: "POST",
             headers: {

@@ -12,7 +12,7 @@ const ShowInventory = ({ stock }) => {
         const proceed = window.confirm('This stock stock will be deleted from the inventory, click OK to proceed.')
         if (proceed) {
             console.log('deleting stock with id ', id);
-            const url = `http://localhost:5000/stock/${id}`;
+            const url = ` https://glacial-spire-92377.herokuapp.com/stock/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

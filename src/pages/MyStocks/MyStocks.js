@@ -16,7 +16,7 @@ const MyStocks = () => {
     useEffect(() => {
         const getStocks = async () => {
             const email = user?.email;
-            const url = `http://localhost:5000/singlestock?email=${email}`;
+            const url = ` https://glacial-spire-92377.herokuapp.com/singlestock?email=${email}`;
             // const { data } = await axios.get(url);
             // setStok
 

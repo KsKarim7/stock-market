@@ -4,7 +4,7 @@ const useStockDetail = id => {
     const [stock, setStock] = useState({})
 
     useEffect(() => {
-        const url = `http://localhost:5000/stock/${id}`
+        const url = ` https://glacial-spire-92377.herokuapp.com/stock/${id}`
 
         fetch(url)
             .then(res => res.json())

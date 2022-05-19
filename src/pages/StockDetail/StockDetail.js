@@ -11,6 +11,19 @@ import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 const StockDetail = () => {
     const { stockId } = useParams();
     const navigate = useNavigate();
+    const [update, setUpdate] = useState(false)
+    // const [stock] = useStockDetail(stockId)
+
+    const [stock, setStock] = useState({})
+
+    useEffect(() => {
+        const url = ` https://glacial-spire-92377.herokuapp.com/stock/${stockId}`
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setStock(data))
+    }, [stockId, update])
+
 
     const navigateToInventory = id => {
         navigate(`/inventory`)
@@ -24,19 +37,21 @@ const StockDetail = () => {
         const proceed = window.confirm("Are you sure?")
         if (proceed) {
             console.log('deleting  user with id,', id);
-            const url = `http://localhost:5000/stock/${id}`;
+            const url = ` https://glacial-spire-92377.herokuapp.com/stock/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
                     "content-type": 'application/json'
                 },
                 body: JSON.stringify({ quantity: stock.quantity - 1 })
+
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
-                    const remaining = stock.filter(stock => stock._id !== id)
-                    setShare(remaining);
+                    // console.log(data)
+                    if (data.modifiedCount > 0) {
+                        setUpdate(!update)
+                    }
                 })
         }
     }
@@ -47,7 +62,7 @@ const StockDetail = () => {
         const proceed = window.confirm("Are you sure?")
         if (proceed) {
             console.log('deleting  user with id,', id);
-            const url = `http://localhost:5000/stock/${id}`;
+            const url = ` https://glacial-spire-92377.herokuapp.com/stock/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -57,15 +72,17 @@ const StockDetail = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
-                    const remaining = stock.filter(stock => stock._id !== id)
-                    setShare(remaining);
+                    // console.log(data)
+                    // const remaining = stock.filter(stock => stock._id !== id)
+                    // setShare(remaining);
+                    if (data.modifiedCount > 0) {
+                        setUpdate(!update)
+                    }
                 })
         }
 
     }
 
-    const [stock] = useStockDetail(stockId)
 
     return (
         <div className='body container'>

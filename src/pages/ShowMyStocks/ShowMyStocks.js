@@ -16,7 +16,7 @@ const ShowMyStocks = ({ stock }) => {
     useEffect(() => {
         const getStocks = async () => {
             const email = user?.email;
-            const url = `http://localhost:5000/singlestock?email=${email}`;
+            const url = ` https://glacial-spire-92377.herokuapp.com/singlestock?email=${email}`;
             const { data } = await axios.get(url);
             // console.log(url)
             setStocks(data);
@@ -31,7 +31,7 @@ const ShowMyStocks = ({ stock }) => {
         const proceed = window.confirm('This stock stock will be deleted from the inventory, click OK to proceed.')
         if (proceed) {
             console.log('', id);
-            const url = `http://localhost:5000/singlestock/${id}`;
+            const url = ` https://glacial-spire-92377.herokuapp.com/singlestock/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
