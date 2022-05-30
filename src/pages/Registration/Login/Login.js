@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import axios from 'axios'
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-
 import './Login.css';
 import SocialLogin from './SocialLogin/SocialLogin';
 import Loading from '../../Shared/Loading/Loading';

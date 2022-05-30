@@ -3,9 +3,16 @@ import Stocks from '../Stocks/Stocks';
 import Banner from './Banner/Banner';
 import StockChart from '../StockChart.js/StockChart';
 import Newsletter from '../Newsletter/Newsletter';
-import useStocks from '../../Hooks/useStocks';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
 
 const Home = () => {
+    const [user, loading] = useAuthState(auth)
+
+    if (loading) {
+        return <Loading></Loading>
+    }
 
     return (
         <>

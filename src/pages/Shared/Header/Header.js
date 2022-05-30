@@ -1,3 +1,5 @@
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
@@ -25,7 +27,7 @@ const Header = () => {
                     <Nav.Link href="#pricing">News Portal</Nav.Link>
                     {
                         user && <>
-                            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                            <NavDropdown title="Stocks" id="collasible-nav-dropdown">
                                 <NavDropdown.Item as={Link} to='inventory'>Manage Stocks</NavDropdown.Item>
                                 <NavDropdown.Item as={Link} to='addstock'>Add Stocks</NavDropdown.Item>
                                 <NavDropdown.Item as={Link} to='mystocks'>My Stocks</NavDropdown.Item>
@@ -37,9 +39,12 @@ const Header = () => {
                 <Nav>
                     {
                         user ?
-                            <div>
-                                <Nav.Link onClick={handleSignOut}>Log Out</Nav.Link>
-                                <Nav.Link className='text-light' as={Link} to="">{user.name}</Nav.Link>
+                            <div className='flex  flex-row-reverse'>
+                                <Nav.Link className=' text-light' onClick={handleSignOut}>Log Out</Nav.Link>
+                                <div className='flex'>
+                                    <FontAwesomeIcon className='text-light mt-2 text-xl' icon={faUser}></FontAwesomeIcon>
+                                    <Nav.Link to="">{user.displayName}</Nav.Link>
+                                </div>
                             </div>
                             :
                             <Nav.Link as={Link} to="/login">Login</Nav.Link>

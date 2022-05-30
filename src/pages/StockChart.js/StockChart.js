@@ -11,7 +11,7 @@ const StockChart = () => {
 
     return (
         <div >
-            <h1 className='text text-center chart' style={{ paddingTop: '60px' }}>A Composed Chart is shown below on today stock report:</h1>
+            <h1 className='text text-center chart' style={{ paddingTop: '60px' }}>A Composed Chart is shown below on today's stock report:</h1>
             <div className='for-mob'>
                 <div className='container' style={{ padding: '50px' }}>
                     {/* <ResponsiveContainer width="100%" height="100%"> */}
