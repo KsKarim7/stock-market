@@ -30,8 +30,6 @@ const StockDetail = () => {
     }
     const sellRef = useRef('');
 
-    const [share, setShare] = useState();
-
     const handlePlaceOrder = id => {
         // const quantity = share.quantity
         const proceed = window.confirm("Are you sure?")
