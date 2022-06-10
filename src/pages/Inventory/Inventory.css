@@ -6,10 +6,14 @@
     overflow-x: scroll;
 } */
 
-.scroll-bar {
+.td {
+    min-width: 50px;
+}
+
+/* .scroll-bar {
     width: 110px;
     height: 110px;
-}
+} */
 
 @media only screen and (max-width:576px) {
     #scroll-table {

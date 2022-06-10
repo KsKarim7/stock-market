@@ -2,13 +2,21 @@ import React, { useEffect, useState } from 'react';
 
 const useStocks = () => {
     const [stocks, setStocks] = useState([]);
+    const [loading, setLoading] = useState(true)
+    // console.log(stocks)
     useEffect(() => {
-        fetch(' https://glacial-spire-92377.herokuapp.com/stock')
+        setLoading(true)
+        fetch('https://glacial-spire-92377.herokuapp.com/stock', {
+            method: 'GET'
+        })
             .then(res => res.json())
-            .then(data => setStocks(data));
+            .then(data => {
+                setStocks(data)
+                setLoading(false)
+            });
     }, [])
 
-    return [stocks, setStocks];
+    return [stocks, loading];
 };
 
 export default useStocks;

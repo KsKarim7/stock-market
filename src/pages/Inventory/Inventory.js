@@ -24,7 +24,7 @@ const Inventory = (props) => {
                 <tbody >
                     <tr>
                         {
-                            stocks.map(stock => <td><ShowInventory
+                            stocks.map(stock => <td className='td'><ShowInventory
                                 key={stock.id}
                                 stock={stock}
 
