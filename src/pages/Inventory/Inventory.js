@@ -19,16 +19,13 @@ const Inventory = (props) => {
                 <thead>
                     <tr>
                         <th className='text-center text-xl bg-secondary text-dark' colSpan={9}>Track table of today's latest stocks</th>
-                        {/* <th>Last Name</th>
-                        <th>Username</th>
-                        <th>Username</th> */}
                     </tr>
                 </thead>
                 <tbody >
                     <tr>
                         {
                             stocks.map(stock => <td><ShowInventory
-                                key={stock._id}
+                                key={stock.id}
                                 stock={stock}
 
                             ></ShowInventory></td>)

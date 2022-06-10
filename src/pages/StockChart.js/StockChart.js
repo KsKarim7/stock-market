@@ -7,7 +7,7 @@ const StockChart = () => {
     // const { _id, name, value, high, low, quantity } = stock;
     // console.log(stock)
     const [stocks, setStocks] = useStocks();
-    console.log(stocks)
+    // console.log(stocks)
 
     return (
         <div >

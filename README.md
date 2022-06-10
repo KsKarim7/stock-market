@@ -8,11 +8,12 @@ Stack overflow link: https://stackoverflow.com/questions/72162549/difference-bet
 
 A short description about the site:
 
-- This site is about the international stock exchange.  
+- A  site on international stock market.  
+- DBMS based stock market system
+- User Authorization system verified by json web token.
+- Implemented firebase Authentication system.
 - Here the user can invest in stock market and trade and as well as manage his individual stocks .
 - Users stock item routes will be protected.
-- User can login through email and google.
-- User's interaction will be secured jwt authorization.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

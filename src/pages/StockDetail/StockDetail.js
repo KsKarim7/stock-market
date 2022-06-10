@@ -34,7 +34,7 @@ const StockDetail = () => {
         // const quantity = share.quantity
         const proceed = window.confirm("Are you sure?")
         if (proceed) {
-            console.log('deleting  user with id,', id);
+            // console.log('deleting  user with id,', id);
             const url = ` https://glacial-spire-92377.herokuapp.com/stock/${id}`;
             fetch(url, {
                 method: 'PUT',
@@ -46,7 +46,7 @@ const StockDetail = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    // console.log(data)
+                    console.log(data)
                     if (data.modifiedCount > 0) {
                         setUpdate(!update)
                     }
