@@ -1,0 +1,112 @@
+[
+  {
+    "_id": "62718a671c6fdc48b6c6d99b",
+    "img": "https://ibb.co/HnsWbPc",
+    "quantity": 444,
+    "value": 154,
+    "name": "Tesla",
+    "supplier": "The New York Stock Exchange",
+    "article": "Tesla Inc. (TSLA), the world's largest automaker by market value, designs, builds, and markets fully electric vehicles (EV) and energy generation and storage systems. The company also provides services through vehicle service centers, body shops, and charging stations. Tesla makes and sells mid-size sedans, full-size sedans, and compact and mid-size sports utility vehicles.",
+    "high": 584,
+    "low": 410
+  },
+  {
+    "_id": "62718a670761f0971d627198",
+    "img": "https://ibb.co/C18bktL",
+    "quantity": 207,
+    "value": 116,
+    "name": "NVIDIA Corporation",
+    "supplier": "The Washington Stock Exchange",
+    "article": "Nvidia (NVDA) appears an attractive pick, as it has been recently upgraded to a Zacks Rank #1 (Strong Buy). An upward trend in earnings estimates -- one of the most powerful forces impacting stock prices -- has triggered this rating change.",
+    "high": 492,
+    "low": 119
+  },
+  {
+    "_id": "62718a67b48c21cc3a949949",
+    "img": "https://ibb.co/n741kWD",
+    "quantity": 460,
+    "value": 327,
+    "name": "Toyota",
+    "supplier": "Tokyo Stock Exchange ",
+    "article": "Toyota Motor Corp is a Japan-based company engaged in the automobile business, finance business and other businesses. The Company operates in three business segments. The Automobile segment is engaged in the design, manufacture and sale of sedans, minivans, 2box, sports utility vehicles, trucks and related vehicles, as well as related parts and products.",
+    "high": 171,
+    "low": 79
+  },
+  {
+    "_id": "62718a6730a7fc51a9c9a2db",
+    "img": "https://ibb.co/KyDQzpy",
+    "quantity": 499,
+    "value": 490,
+    "name": "Commonwealth Bank",
+    "supplier": "Australian Securities Exchange",
+    "article": "Aute proident minim mollit veniam anim irure labore ea quis reprehenderit ut. Ea id id fugiat labore mollit commodo tempor deserunt incididunt aliquip. Elit anim consequat proident nisi. Ullamco tempor do cupidatat eu fugiat sit. Id nisi et eu nostrud officia nisi enim mollit cupidatat.\r\n",
+    "high": 258,
+    "low": 53
+  },
+  {
+    "_id": "62718a677b04bf37620705d6",
+    "img": "https://ibb.co/mbzZL1S+",
+    "quantity": 747,
+    "value": 66,
+    "name": "Ks Corporation",
+    "supplier": "Ks Stock Exchange",
+    "article": "Undoubtebly this is gonna be one of the biggest stock to buy in the world of stock market. They are building themselves like no one else did ever before. Then the only game will be played by then in the whole market.It will rise like BOOM!",
+    "high": 640,
+    "low": 164
+  },
+  {
+    "_id": "62718a677df77d33e4fe34b9",
+    "img": "https://ibb.co/9b0wdZ0",
+    "quantity": 540,
+    "value": 305,
+    "name": "Bank Asia",
+    "supplier": "DSE",
+    "article": "Bank Asia limited is a Bangladesh-based commercial bank. The principal activities of the Bank are to provide various conventional and Islamic commercial banking services to its customers through its branches, Islamic windows, small and medium enterprise (SME) centers, and alternative delivery channels (automatic teller machine (ATM) booths, mobile banking and Internet banking) in Bangladesh. ",
+    "high": 313,
+    "low": 129
+  },
+  {
+    "_id": "62718a67c1ac6583e9c92941",
+    "img": "https://ibb.co/RDHr63F",
+    "quantity": 314,
+    "value": 450,
+    "name": "Toronto Dominion Bank",
+    "supplier": "Toronto Stock Exchange",
+    "article": "Toronto Dominion is a  great stock to hold. Short-term, banks are declining because of higher rates could squeeze them and there's a fear that some creditors can't pay them. You can sell 5-10% of TD and buy an oil stock--but remember to sell oil (within six months).",
+    "high": 351,
+    "low": 165
+  },
+  {
+    "_id": "62718a67dd1233623b6a3de7",
+    "img": "https://ibb.co/8gvMt40",
+    "quantity": 109,
+    "value": 257,
+    "name": "Samsung",
+    "supplier": "Korea Stock Exchange",
+    "article": "Samsung has been a dominant company for many years, and its growth rates are not exceptional. However, the company has remained profitable year after year, even in the face of the COVID-19 pandemic. Samsung's consistent profitability has been matched by an equally consistent profit margin.",
+    "high": 127,
+    "low": 60
+  },
+  {
+    "_id": "62718a67c9555893eb6c1e7f",
+    "img": "https://ibb.co/KWLpPVk",
+    "quantity": 908,
+    "value": 112,
+    "name": "Beximco",
+    "supplier": "DSE",
+    "article": "Beximco Pharma has been the top choice for stock investors in the last few weeks as they believe the drug producer will make higher profits in the days to come with the administering of a Covid-19 vaccine in Bangladesh.Stock price of the local drug maker rose 58 per cent to Tk 174 in a span of the past three months.",
+    "high": 814,
+    "low": 336
+  },
+  {
+    "_id": "62718a67538daa0b09bc9541",
+    "img": "https://ibb.co/MnRg5ZX",
+    "quantity": 685,
+    "value": 492,
+    "name": "Unilever",
+    "supplier": "The London Stock Exchange",
+    "article": "Unilever produces great profit margins. The rate was 18.4 per cent in 2021, but it has averaged 17.4 per cent since 2011 and was never been less than 14.2 per cent in that period.Unilever has received a consensus rating of Hold. The company's average rating score is 2.00, and is based on 1 buy rating, 4 hold ratings, and 1 sell rating.",
+    "high": 272,
+    "low": 165
+  }
+]
