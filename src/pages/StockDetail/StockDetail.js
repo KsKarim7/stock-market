@@ -92,7 +92,7 @@ const StockDetail = () => {
                             <img src={stock.img} className='w-75' alt="" />
                         </div>
                         <div className='stock-info'>
-                            <h3 className='text-secondary'>{stock.name}</h3>
+                            <h3 style={{ color: '#c8c6c6' }}>{stock.name}</h3>
                             <h5 className="text-light">Origin: {stock.supplier}</h5>
                             <p className="text-light">Current Stock Value: ${stock.value}</p>
                             <p className="text-light">{stock.article}</p>
@@ -115,7 +115,7 @@ const StockDetail = () => {
                                 <h4>Name of stock:</h4>
                             </Form.Label>
                             <Col sm="10">
-                                <Form.Control className='text-xl fw-bold' plaintext readOnly defaultValue={stock.name} />
+                                <Form.Control className='text-2xl fw-bold' plaintext readOnly defaultValue={stock.name} />
                             </Col>
                         </Form.Group>
 

@@ -6,7 +6,7 @@ import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
-import logo from '../../../img/logo/bull-bear-logo-bullish-stocks_434503-247 (1) (1).png'
+import logo from '../../../img/logo/bull-bear-logo.png'
 import './Header.css'
 
 const Header = () => {

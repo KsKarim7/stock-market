@@ -23,9 +23,9 @@ const Stock = ({ stock }) => {
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroupItem>Supplier: {supplier}</ListGroupItem>
+                    <ListGroupItem>Supplier: <span className='fw-bold'>{supplier}</span> </ListGroupItem>
                     <ListGroupItem >Current Share value: <span className='fw-bold'>${value}</span> </ListGroupItem>
-                    <ListGroupItem>Quality: {quantity}</ListGroupItem>
+                    <ListGroupItem>Quality:<span className='fw-bold'> {quantity}</span></ListGroupItem>
                 </ListGroup>
                 <Card.Body onClick={() => navigateToStockDetail(_id)} className='btn-body  text-center '>
                     <Card.Link className='text-light update-btn' href="#">Update Stock</Card.Link>

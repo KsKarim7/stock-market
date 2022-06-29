@@ -48,7 +48,7 @@ const MyStocks = () => {
             <Table striped bordered hover variant="dark">
                 <thead>
                     <tr>
-                        <th className='text-center text-xl bg-secondary text-dark' colSpan={9}>Track table of My stocks</th>
+                        <th className='text-center text-xl text-dark' style={{ background: '#948f8f' }} colSpan={9}>Track table of owned stocks</th>
                     </tr>
                 </thead>
                 <tbody>
